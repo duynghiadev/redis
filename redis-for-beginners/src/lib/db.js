@@ -1,19 +1,19 @@
-import { createClient } from 'redis'
+import { createClient } from "redis";
 
 const client = createClient({
   password: process.env.REDIS_PW,
   socket: {
     host: process.env.REDIS_HOST,
-    port: process.env.REDIS_PORT
-  }
-})
+    port: process.env.REDIS_PORT,
+  },
+});
 
-client.on('error', err => console.log(err))
+client.on("error", (err) => console.log(err));
 
 if (!client.isOpen) {
-  client.connect()
+  client.connect();
 }
 
 // client.set('name', 'mario')
 
-export { client }
+export { client };
